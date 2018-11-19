@@ -35,11 +35,11 @@
         <javaClientGenerator type="XMLMAPPER" targetPackage="${dao.package}" targetProject="${target.project}">
             <property name="enableSubPackages" value="ture"/>
         </javaClientGenerator>
-        
-       <table tableName="merchant" domainObjectName="Merchant" enableCountByExample="false" 
-		enableUpdateByExample="false" enableDeleteByExample="false" 
-		enableSelectByExample="false" selectByExampleQueryId="false">
-			<property name="useActualColumnNames" value="true"/>
-		</table>
+
+        <table tableName="merchant" domainObjectName="Merchant" enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" selectByExampleQueryId="false">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
     </context>
 </generatorConfiguration>

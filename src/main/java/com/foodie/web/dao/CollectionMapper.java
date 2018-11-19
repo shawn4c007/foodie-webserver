@@ -1,9 +1,9 @@
 package com.foodie.web.dao;
 
+import com.foodie.web.model.Collection;
+
 import java.util.List;
 import java.util.Map;
-
-import com.foodie.web.model.Collection;
 
 public interface CollectionMapper {
     int deleteByPrimaryKey(String id);
@@ -18,7 +18,7 @@ public interface CollectionMapper {
 
     int updateByPrimaryKey(Collection record);
 
-	Collection selectByDishAndUser(Map<String, Object> params);
+    Collection selectByDishAndUser(Map<String, Object> params);
 
-	List<Collection> selectByUserId(String userId);
+    List<Collection> selectByUserId(String userId);
 }

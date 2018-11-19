@@ -13,9 +13,9 @@ import java.util.UUID;
  * @author songjiesdnu@163.com
  */
 public class UUIDUtils {
-	public static String getUUID(){
-		String uuid = UUID.randomUUID().toString();
-		return uuid.replaceAll("-", "");
-	}
+    public static String getUUID() {
+        String uuid = UUID.randomUUID().toString();
+        return uuid.replaceAll("-", "");
+    }
 }
 

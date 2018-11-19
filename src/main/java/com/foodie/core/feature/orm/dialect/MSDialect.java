@@ -2,7 +2,7 @@ package com.foodie.core.feature.orm.dialect;
 
 /**
  * MSSQL 数据库方言
- * 
+ *
  * @author StarZou
  * @since 2014年5月18日 下午1:32:33
  **/

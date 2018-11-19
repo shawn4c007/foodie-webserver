@@ -62,7 +62,8 @@ define(['module'], function (module) {
                     progId = progIds[i];
                     try {
                         xhr = new ActiveXObject(progId);
-                    } catch (e) {}
+                    } catch (e) {
+                    }
 
                     if (xhr) {
                         progIds = [progId];  // so faster next time
@@ -87,7 +88,7 @@ define(['module'], function (module) {
                 strip = false,
                 index = name.indexOf("."),
                 isRelative = name.indexOf('./') === 0 ||
-                             name.indexOf('../') === 0;
+                    name.indexOf('../') === 0;
 
             if (index !== -1 && (!isRelative || index > 1)) {
                 modName = name.substring(0, index);
@@ -140,8 +141,8 @@ define(['module'], function (module) {
             uHostName = uHostName[0];
 
             return (!uProtocol || uProtocol === protocol) &&
-                   (!uHostName || uHostName.toLowerCase() === hostname.toLowerCase()) &&
-                   ((!uPort && !uHostName) || uPort === port);
+                (!uHostName || uHostName.toLowerCase() === hostname.toLowerCase()) &&
+                ((!uPort && !uHostName) || uPort === port);
         },
 
         finishLoad: function (name, strip, content, onLoad) {
@@ -174,7 +175,7 @@ define(['module'], function (module) {
                     (parsed.ext ? '.' + parsed.ext : ''),
                 url = req.toUrl(nonStripName),
                 useXhr = (masterConfig.useXhr) ||
-                         text.useXhr;
+                    text.useXhr;
 
             // Do not load if it is an empty: url
             if (url.indexOf('empty:') === 0) {
@@ -198,7 +199,7 @@ define(['module'], function (module) {
                 //!strip part to avoid file system issues.
                 req([nonStripName], function (content) {
                     text.finishLoad(parsed.moduleName + '.' + parsed.ext,
-                                    parsed.strip, content, onLoad);
+                        parsed.strip, content, onLoad);
                 });
             }
         },
@@ -207,9 +208,9 @@ define(['module'], function (module) {
             if (buildMap.hasOwnProperty(moduleName)) {
                 var content = text.jsEscape(buildMap[moduleName]);
                 write.asModule(pluginName + "!" + moduleName,
-                               "define(function () { return '" +
-                                   content +
-                               "';});\n");
+                    "define(function () { return '" +
+                    content +
+                    "';});\n");
             }
         },
 
@@ -369,13 +370,13 @@ define(['module'], function (module) {
             //XPCOM, you so crazy
             try {
                 inStream = Cc['@mozilla.org/network/file-input-stream;1']
-                           .createInstance(Ci.nsIFileInputStream);
+                    .createInstance(Ci.nsIFileInputStream);
                 inStream.init(fileObj, 1, 0, false);
 
                 convertStream = Cc['@mozilla.org/intl/converter-input-stream;1']
-                                .createInstance(Ci.nsIConverterInputStream);
+                    .createInstance(Ci.nsIConverterInputStream);
                 convertStream.init(inStream, "utf-8", inStream.available(),
-                Ci.nsIConverterInputStream.DEFAULT_REPLACEMENT_CHARACTER);
+                    Ci.nsIConverterInputStream.DEFAULT_REPLACEMENT_CHARACTER);
 
                 convertStream.readString(inStream.available(), readData);
                 convertStream.close();

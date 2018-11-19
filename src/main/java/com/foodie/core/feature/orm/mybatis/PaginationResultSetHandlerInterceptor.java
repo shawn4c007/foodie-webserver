@@ -1,7 +1,5 @@
 package com.foodie.core.feature.orm.mybatis;
 
-import java.sql.Statement;
-import java.util.Properties;
 import org.apache.ibatis.executor.resultset.FastResultSetHandler;
 import org.apache.ibatis.executor.resultset.ResultSetHandler;
 import org.apache.ibatis.plugin.Interceptor;
@@ -16,11 +14,14 @@ import org.apache.ibatis.reflection.wrapper.DefaultObjectWrapperFactory;
 import org.apache.ibatis.reflection.wrapper.ObjectWrapperFactory;
 import org.apache.ibatis.session.RowBounds;
 
+import java.sql.Statement;
+import java.util.Properties;
+
 /**
  * @author StarZou
  * @since 2014年5月18日 下午1:36:08
  **/
-@Intercepts({ @Signature(type = ResultSetHandler.class, method = "handleResultSets", args = { Statement.class }) })
+@Intercepts({@Signature(type = ResultSetHandler.class, method = "handleResultSets", args = {Statement.class})})
 public class PaginationResultSetHandlerInterceptor implements Interceptor {
 
     private static final ObjectFactory DEFAULT_OBJECT_FACTORY = new DefaultObjectFactory();

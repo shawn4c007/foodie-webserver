@@ -24,7 +24,7 @@ public class Recipe {
     private String thumbnail;
 
     private String score;
-    
+
     private Integer collectionCount;
 
     public String getId() {
@@ -122,10 +122,12 @@ public class Recipe {
     public void setScore(String score) {
         this.score = score == null ? null : score.trim();
     }
-    public Integer getCollectionCount(){
-    	return collectionCount;
+
+    public Integer getCollectionCount() {
+        return collectionCount;
     }
-    public void setCollectionCount(Integer collectionCount){
-    	this.collectionCount=collectionCount;
+
+    public void setCollectionCount(Integer collectionCount) {
+        this.collectionCount = collectionCount;
     }
 }

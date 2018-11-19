@@ -13,9 +13,9 @@ public class RSAEncoder {
     private final BigInteger pubKey;
     private final int c;
     private final int d;
-    private int e = 0;
     private final BigInteger f;
     private final boolean g;
+    private int e = 0;
 
     public RSAEncoder(BigInteger privKey, BigInteger pubKey, int len, boolean newLine) {
         this.privKey = privKey;
@@ -29,6 +29,25 @@ public class RSAEncoder {
         }
         this.d = i;
         this.c = (privKeyLen / 8 - 1);
+    }
+
+    private static char b(BigInteger paramBigInteger) {
+        int i = paramBigInteger.intValue();
+        char c1;
+        if (i < 10) {
+            c1 = (char) (48 + i);
+        } else {
+            if (i < 36) {
+                c1 = (char) (65 + i - 10);
+            } else {
+                if (i < 62)
+                    c1 = (char) (97 + i - 36);
+                else {
+                    c1 = (char) (33 + i - 62);
+                }
+            }
+        }
+        return c1;
     }
 
     public String encode(byte[] bytes) {
@@ -84,25 +103,6 @@ public class RSAEncoder {
             }
         }
         this.e += 1;
-    }
-
-    private static char b(BigInteger paramBigInteger) {
-        int i = paramBigInteger.intValue();
-        char c1;
-        if (i < 10) {
-            c1 = (char) (48 + i);
-        } else {
-            if (i < 36) {
-                c1 = (char) (65 + i - 10);
-            } else {
-                if (i < 62)
-                    c1 = (char) (97 + i - 36);
-                else {
-                    c1 = (char) (33 + i - 62);
-                }
-            }
-        }
-        return c1;
     }
 }
 

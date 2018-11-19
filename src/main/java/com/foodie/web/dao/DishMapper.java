@@ -1,8 +1,8 @@
 package com.foodie.web.dao;
 
-import java.util.List;
-
 import com.foodie.web.model.Dish;
+
+import java.util.List;
 
 public interface DishMapper {
     int deleteByPrimaryKey(String id);
@@ -17,9 +17,9 @@ public interface DishMapper {
 
     int updateByPrimaryKey(Dish record);
 
-	List<Dish> getAll();
+    List<Dish> getAll();
 
-	List<Dish> search(String queryString);
+    List<Dish> search(String queryString);
 
-	List<Dish> selectByRestaurantId(String id);
+    List<Dish> selectByRestaurantId(String id);
 }

@@ -4,6 +4,6 @@ import com.foodie.web.model.Like;
 
 public interface ILikeService {
 
-	int insert(Like like);
+    int insert(Like like);
 
 }

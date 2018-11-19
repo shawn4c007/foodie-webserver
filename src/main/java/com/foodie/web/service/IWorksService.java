@@ -1,15 +1,15 @@
 package com.foodie.web.service;
 
-import java.util.List;
-
 import com.foodie.web.model.Works;
 
+import java.util.List;
+
 public interface IWorksService {
-	Works selectByPrimaryKey(String id);
+    Works selectByPrimaryKey(String id);
 
-	int insert(Works works);
-	
-	List<Works> getAll();
+    int insert(Works works);
 
-	List<Works> selectByUserId(String userId);
+    List<Works> getAll();
+
+    List<Works> selectByUserId(String userId);
 }

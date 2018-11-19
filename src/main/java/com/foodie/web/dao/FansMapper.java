@@ -1,9 +1,9 @@
 package com.foodie.web.dao;
 
+import com.foodie.web.model.Fans;
+
 import java.util.List;
 import java.util.Map;
-
-import com.foodie.web.model.Fans;
 
 public interface FansMapper {
     int deleteByPrimaryKey(String id);
@@ -18,10 +18,10 @@ public interface FansMapper {
 
     int updateByPrimaryKey(Fans record);
 
-	Fans selectByTwoId(Map<String, Object> param);
+    Fans selectByTwoId(Map<String, Object> param);
 
-	List<Fans> selectByUserId(String userId);
-	
-	List<Fans> selectByFansId(String fansId);
-	
+    List<Fans> selectByUserId(String userId);
+
+    List<Fans> selectByFansId(String fansId);
+
 }

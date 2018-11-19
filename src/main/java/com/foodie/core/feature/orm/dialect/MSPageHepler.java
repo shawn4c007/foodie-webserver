@@ -20,16 +20,16 @@ public class MSPageHepler {
         String select = querySelect.substring(0, formIndex);
 
         // 如果SELECT 中包含 DISTINCT 只能在外层包含COUNT
-        if (select.toLowerCase().indexOf("select distinct") != -1 || querySelect.toLowerCase().indexOf("group by") != -1) {
-            return new StringBuffer(querySelect.length()).append("select count(1) count from (").append(querySelect.substring(0, orderIndex)).append(" ) t").toString();
+        if (select.toLowerCase().contains("select distinct") || querySelect.toLowerCase().contains("group by")) {
+            return "select count(1) count from (" + querySelect.substring(0, orderIndex) + " ) t";
         } else {
-            return new StringBuffer(querySelect.length()).append("select count(1) count ").append(querySelect.substring(formIndex, orderIndex)).toString();
+            return "select count(1) count " + querySelect.substring(formIndex, orderIndex);
         }
     }
 
     /**
      * 得到最后一个Order By的插入点位置
-     * 
+     *
      * @return 返回最后一个Order By插入点的位置
      */
     private static int getLastOrderInsertPoint(String querySelect) {
@@ -45,11 +45,9 @@ public class MSPageHepler {
 
     /**
      * 得到分页的SQL
-     * 
-     * @param offset
-     *            偏移量
-     * @param limit
-     *            位置
+     *
+     * @param offset 偏移量
+     * @param limit  位置
      * @return 分页SQL
      */
     public static String getLimitString(String querySelect, int offset, int limit) {
@@ -66,9 +64,8 @@ public class MSPageHepler {
 
     /**
      * 将SQL语句变成一条语句，并且每个单词的间隔都是1个空格
-     * 
-     * @param sql
-     *            SQL语句
+     *
+     * @param sql SQL语句
      * @return 如果sql是NULL返回空，否则返回转化后的SQL
      */
     private static String getLineSql(String sql) {
@@ -94,10 +91,9 @@ public class MSPageHepler {
 
     /**
      * 判断括号"()"是否匹配,并不会判断排列顺序是否正确
-     * 
-     * @param text
-     *            要判断的文本
-     * @return 如果匹配返回TRUE,否则返回FALSE
+     *
+     * @param text 要判断的文本
+     * @return 如果匹配返回TRUE, 否则返回FALSE
      */
     private static boolean isBracketCanPartnership(String text) {
         if (text == null || (getIndexOfCount(text, '(') != getIndexOfCount(text, ')'))) {
@@ -108,11 +104,9 @@ public class MSPageHepler {
 
     /**
      * 得到一个字符在另一个字符串中出现的次数
-     * 
-     * @param text
-     *            文本
-     * @param ch
-     *            字符
+     *
+     * @param text 文本
+     * @param ch   字符
      */
     private static int getIndexOfCount(String text, char ch) {
         int count = 0;

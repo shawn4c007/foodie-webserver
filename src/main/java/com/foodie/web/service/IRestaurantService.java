@@ -1,8 +1,8 @@
 package com.foodie.web.service;
 
-import java.util.List;
-
 import com.foodie.web.model.Restaurant;
+
+import java.util.List;
 
 public interface IRestaurantService {
 
@@ -10,11 +10,11 @@ public interface IRestaurantService {
 //
 //	Restaurant selectByPhone(String phone);
 
-	Restaurant selectByPrimaryKey(String id);
+    Restaurant selectByPrimaryKey(String id);
 
-	Restaurant selectByAccountName(String accountName);
+    Restaurant selectByAccountName(String accountName);
 
-	List<Restaurant> getAll();
+    List<Restaurant> getAll();
 
-	int insert(Restaurant restaurant);
+    int insert(Restaurant restaurant);
 }

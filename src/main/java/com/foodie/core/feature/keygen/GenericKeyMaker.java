@@ -27,6 +27,11 @@ public class GenericKeyMaker {
 
     private Random random = new Random();
 
+    public static void main(String[] args) {
+        GenericKeyMaker keyMaker = new GenericKeyMaker();
+        System.out.println(keyMaker.genericAppCodeKey(1, 13, "StarZou"));
+    }
+
     private String getLicenseId() {
         return String.format("D%sT", Integer.toString(random.nextInt(90000) + 10000));
     }
@@ -128,10 +133,5 @@ public class GenericKeyMaker {
         BigInteger privKey = new BigInteger("7BFADCB153F59E86E69BC1820B4DB72573786E6B00CB824E57AD59BFE915231972746F47C6FBE0D8D88809DA313C1E4BEAD305AD8AFD31AE116ABCB181FF4F21", 16);
 
         return generateKey(privKey, pubKey, LICENSETYPE_NON_COMMERCIAL, PRODUCTID_WebStorm, minorVersion, majorVersion, userName);
-    }
-
-    public static void main(String[] args) {
-        GenericKeyMaker keyMaker = new GenericKeyMaker();
-        System.out.println(keyMaker.genericAppCodeKey(1, 13, "StarZou"));
     }
 }

@@ -15,5 +15,5 @@ public interface IngredientMapper {
 
     int updateByPrimaryKey(Ingredient record);
 
-	Ingredient selectByName(String name);
+    Ingredient selectByName(String name);
 }

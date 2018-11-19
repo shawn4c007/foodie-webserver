@@ -1,9 +1,9 @@
 package com.foodie.web.dao;
 
-import java.util.List;
-
 import com.foodie.web.model.Recipe;
 import com.foodie.web.model.Works;
+
+import java.util.List;
 
 public interface RecipeMapper {
     int deleteByPrimaryKey(String id);
@@ -18,9 +18,9 @@ public interface RecipeMapper {
 
     int updateByPrimaryKey(Recipe record);
 
-	List<Recipe> getHotRecipes(Integer count);
+    List<Recipe> getHotRecipes(Integer count);
 
-	List<Recipe> getNewRecipes(Integer count);
+    List<Recipe> getNewRecipes(Integer count);
 
-	List<Works> getAll();
+    List<Works> getAll();
 }

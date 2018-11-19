@@ -6,7 +6,7 @@ import java.util.Map;
 /**
  * ErrorResult : 用于响应错误的请求的对象
  *
- * @author Xiongbo 
+ * @author Xiongbo
  * @since 2014-09-27 16:38
  */
 public class ErrorResult extends Result {
@@ -17,15 +17,15 @@ public class ErrorResult extends Result {
      */
     private Map<String, Object> errors = new HashMap<>();
 
+    public ErrorResult() {
+
+    }
+
     public Map<String, Object> getErrors() {
         return errors;
     }
 
     public void setErrors(Map<String, Object> errors) {
         this.errors = errors;
-    }
-
-    public ErrorResult() {
-
     }
 }

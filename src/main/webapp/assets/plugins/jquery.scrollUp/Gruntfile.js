@@ -2,7 +2,7 @@ module.exports = function (grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         meta: {
-          banner: '/*\n' +
+            banner: '/*\n' +
             '\n' +
             ' <%= pkg.name %> v<%= pkg.version %>\n' +
             ' Author: <%= pkg.authors[0].name %> - <%= pkg.authors[0].url %>\n' +
@@ -17,44 +17,44 @@ module.exports = function (grunt) {
             ' */\n'
         },
         concat: {
-          dist: {
-            src: ["src/jquery.scrollUp.js"],
-            dest: "js/jquery.scrollUp.js"
-          },
-          options: {
-            banner: "<%= meta.banner %>"
-          }
+            dist: {
+                src: ["src/jquery.scrollUp.js"],
+                dest: "js/jquery.scrollUp.js"
+            },
+            options: {
+                banner: "<%= meta.banner %>"
+            }
         },
         uglify: {
             options: {
-              // mangle: false,
-              banner: "<%= meta.banner %>"
+                // mangle: false,
+                banner: "<%= meta.banner %>"
             },
             'js/jquery.scrollUp.min.js': ['js/jquery.scrollUp.js']
         },
         jshint: {
-            all: [ 'src/jquery.scrollUp.js' ],
+            all: ['src/jquery.scrollUp.js'],
             options: {
-              "boss": true,
-              "curly": true,
-              "eqeqeq": true,
-              "eqnull": true,
-              "expr": true,
-              "immed": true,
-              "noarg": true,
-              "onevar": false,
-              "quotmark": "single",
-              "smarttabs": true,
-              "trailing": true,
-              "undef": true,
-              "unused": true,
-              "globals": {
-                  "jQuery": true,
-                  "window": true,
-                  "document": true,
-                  "scrollEvent": true,
-                  "scrollDis": true
-              }
+                "boss": true,
+                "curly": true,
+                "eqeqeq": true,
+                "eqnull": true,
+                "expr": true,
+                "immed": true,
+                "noarg": true,
+                "onevar": false,
+                "quotmark": "single",
+                "smarttabs": true,
+                "trailing": true,
+                "undef": true,
+                "unused": true,
+                "globals": {
+                    "jQuery": true,
+                    "window": true,
+                    "document": true,
+                    "scrollEvent": true,
+                    "scrollDis": true
+                }
             }
         },
         clean: ['js/jquery.scrollUp.min.js', 'js/jquery.scrollUp.js']

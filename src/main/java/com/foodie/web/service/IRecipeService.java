@@ -1,18 +1,18 @@
 package com.foodie.web.service;
 
-import java.util.List;
-
 import com.foodie.web.model.Recipe;
 import com.foodie.web.model.Works;
 
+import java.util.List;
+
 public interface IRecipeService {
-	Recipe selectByPrimaryKey(String id);
-	
-	int insert(Recipe recipe);
-	
-	List<Recipe> getHotRecipes(Integer count);
+    Recipe selectByPrimaryKey(String id);
 
-	List<Recipe> getNewRecipes(Integer count);
+    int insert(Recipe recipe);
 
-	List<Works> getAll();
+    List<Recipe> getHotRecipes(Integer count);
+
+    List<Recipe> getNewRecipes(Integer count);
+
+    List<Works> getAll();
 }

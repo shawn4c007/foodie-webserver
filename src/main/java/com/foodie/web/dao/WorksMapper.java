@@ -1,8 +1,8 @@
 package com.foodie.web.dao;
 
-import java.util.List;
-
 import com.foodie.web.model.Works;
+
+import java.util.List;
 
 public interface WorksMapper {
     int deleteByPrimaryKey(String id);
@@ -17,7 +17,7 @@ public interface WorksMapper {
 
     int updateByPrimaryKey(Works record);
 
-	List<Works> getAll();
+    List<Works> getAll();
 
-	List<Works> selectByUserId(String userId);
+    List<Works> selectByUserId(String userId);
 }

@@ -1,24 +1,24 @@
 package com.foodie.web.service;
 
-import java.util.List;
-
 import com.foodie.web.model.Dish;
+
+import java.util.List;
 
 
 public interface IDishService {
-	Dish selectByPrimaryKey(String id);
-	
-	int insert(Dish dish);
-	
-	List<Dish> getHotRecipes(Integer count);
+    Dish selectByPrimaryKey(String id);
 
-	List<Dish> getNewRecipes(Integer count);
+    int insert(Dish dish);
 
-	List<Dish> getAll();
+    List<Dish> getHotRecipes(Integer count);
 
-	List<Dish> search(String queryString);
+    List<Dish> getNewRecipes(Integer count);
 
-	List<Dish> selectByRestaurantId(String id);
+    List<Dish> getAll();
 
-	int delete(Dish dish);
+    List<Dish> search(String queryString);
+
+    List<Dish> selectByRestaurantId(String id);
+
+    int delete(Dish dish);
 }

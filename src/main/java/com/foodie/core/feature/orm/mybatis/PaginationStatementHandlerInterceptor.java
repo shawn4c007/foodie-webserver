@@ -1,9 +1,7 @@
 package com.foodie.core.feature.orm.mybatis;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.Properties;
+import com.foodie.core.feature.orm.dialect.Dialect;
+import com.foodie.core.feature.orm.dialect.DialectFactory;
 import org.apache.ibatis.executor.parameter.ParameterHandler;
 import org.apache.ibatis.executor.statement.StatementHandler;
 import org.apache.ibatis.mapping.BoundSql;
@@ -22,14 +20,16 @@ import org.apache.ibatis.session.RowBounds;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.foodie.core.feature.orm.dialect.Dialect;
-import com.foodie.core.feature.orm.dialect.DialectFactory;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.Properties;
 
 /**
  * @author StarZou
  * @since 2014年5月18日 下午1:36:31
  **/
-@Intercepts({ @Signature(type = StatementHandler.class, method = "prepare", args = { Connection.class }) })
+@Intercepts({@Signature(type = StatementHandler.class, method = "prepare", args = {Connection.class})})
 public class PaginationStatementHandlerInterceptor implements Interceptor {
 
     private final static Logger logger = LoggerFactory.getLogger(PaginationStatementHandlerInterceptor.class);
@@ -82,7 +82,7 @@ public class PaginationStatementHandlerInterceptor implements Interceptor {
 
     /**
      * 获取总计录
-     * 
+     *
      * @param parameterHandler
      * @param connection
      * @param countSql

@@ -1,5 +1,8 @@
 package com.foodie.core.util;
 
+import org.apache.commons.lang3.time.DateFormatUtils;
+import org.apache.commons.lang3.time.DateUtils;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -7,9 +10,6 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
-
-import org.apache.commons.lang3.time.DateFormatUtils;
-import org.apache.commons.lang3.time.DateUtils;
 
 /**
  * @ClassName:MyDateUtils
@@ -29,10 +29,9 @@ public class STDateUtils {
     private final static String DAY_FORMAT = "yyyyMMdd";
 
     /**
+     * @return String
      * @Title:getMonthFirstDay
      * @Description: 得到当前月的第一天.
-     * @return
-     * @return String
      */
     public static String getMonthFirstDay() {
         Calendar cal = Calendar.getInstance();
@@ -51,10 +50,9 @@ public class STDateUtils {
     }
 
     /**
+     * @return String
      * @Title:getMonthLastDay
      * @Description: 得到当前月最后一天
-     * @return
-     * @return String
      */
     public static String getMonthLastDay() {
         Calendar cal = Calendar.getInstance();
@@ -80,10 +78,9 @@ public class STDateUtils {
     }
 
     /**
+     * @return String
      * @Title:getPreviousMonthFirst
      * @Description: 得到上个月的第一天
-     * @return
-     * @return String
      */
     public static String getPreviousMonthFirst() {
         Calendar cal = Calendar.getInstance();
@@ -108,10 +105,9 @@ public class STDateUtils {
     }
 
     /**
+     * @return String
      * @Title:getPreviousMonthEnd
      * @Description: 得到上个月最后一天
-     * @return
-     * @return String
      */
     public static String getPreviousMonthEnd() {
         Calendar cal = Calendar.getInstance();
@@ -137,10 +133,9 @@ public class STDateUtils {
     }
 
     /**
+     * @return String
      * @Title:getNextMonthFirst
      * @Description: 得到下个月的第一天
-     * @return
-     * @return String
      */
     public static String getNextMonthFirst() {
         Calendar cal = Calendar.getInstance();
@@ -160,10 +155,9 @@ public class STDateUtils {
     }
 
     /**
+     * @return String
      * @Title:getNextMonthEnd
      * @Description: 得到下个月最后一天。
-     * @return
-     * @return String
      */
     public static String getNextMonthEnd() {
         Calendar cal = Calendar.getInstance();
@@ -180,10 +174,9 @@ public class STDateUtils {
     }
 
     /**
+     * @return int
      * @Title:getCurrentMonthDays
      * @Description: 得到当前月的天数
-     * @return
-     * @return int
      */
     public static int getCurrentMonthDays() {
         Calendar cal = new GregorianCalendar();// Calendar.getInstance();
@@ -192,11 +185,10 @@ public class STDateUtils {
     }
 
     /**
+     * @param date
+     * @return int
      * @Title:getSpecifiedMonthDays
      * @Description: 得到指定的月份的天数
-     * @param date
-     * @return
-     * @return int
      */
     public static int getSpecifiedMonthDays(String date) {
         Calendar cal = Calendar.getInstance();
@@ -211,10 +203,9 @@ public class STDateUtils {
     }
 
     /**
+     * @return String
      * @Title:getCurrentDate
      * @Description: 得到当前日期
-     * @return
-     * @return String
      */
     public static String getCurrentDate() {
         Calendar cal = Calendar.getInstance();
@@ -223,10 +214,9 @@ public class STDateUtils {
     }
 
     /**
+     * @return String
      * @Title:getCurrentTime
      * @Description: 得到当前的时间
-     * @return
-     * @return String
      */
     public static String getCurrentTime() {
         Calendar cal = Calendar.getInstance();
@@ -235,23 +225,21 @@ public class STDateUtils {
     }
 
     /**
+     * @return long
      * @Title:getCurrentMs
      * @Description: 得到当前的时间毫秒
-     * @return
-     * @return long
      */
     public static long getCurrentMs() {
         Calendar cal = Calendar.getInstance();
         long currentMs = cal.getTimeInMillis();
         return currentMs;
     }
-    
+
     /**
+     * @param offset
+     * @return String
      * @Title:getOffsetDate
      * @Description: 得到与当前日期偏移量为X的日期。
-     * @param offset
-     * @return
-     * @return String
      */
     public static String getOffsetDate(int offset) {
         Calendar cal = Calendar.getInstance();
@@ -261,14 +249,12 @@ public class STDateUtils {
     }
 
     /**
-     * @Title:getSpecifiedOffsetDate
-     * @Description: 得到与指定日期偏移量为X的日期。
-     * @param specifiedDate指定的日期
-     *            ,格式为YYYY-MM-DD
+     * @param specifiedDate指定的日期 ,格式为YYYY-MM-DD
      * @param offset
-     * @return 返回yyyy-MM-dd格式的字符串日期
      * @return String
      * @throws ParseException
+     * @Title:getSpecifiedOffsetDate
+     * @Description: 得到与指定日期偏移量为X的日期。
      */
     public static String getSpecifiedOffsetDate(String specifiedDate, int offset) throws ParseException {
         Date date = DateUtils.parseDate(specifiedDate, DATE_FORMAT);
@@ -279,15 +265,12 @@ public class STDateUtils {
     }
 
     /**
+     * @param specifiedTime 指定的时间,格式为yyyy-MM-dd HH:mm:ss
+     * @param offset        偏移天数
+     * @return String
+     * @throws ParseException
      * @Title:getSpecifiedOffsetTime
      * @Description: 得到与指定日期时间偏移量为X的时间。
-     * @param specifiedTime
-     *            指定的时间,格式为yyyy-MM-dd HH:mm:ss
-     * @param offset
-     *            偏移天数
-     * @return 返回yyyy-MM-dd HH:mm:ss格式的字符串时间
-     * @throws ParseException
-     * @return String
      */
     public static String getSpecifiedOffsetTime(String specifiedTime, int offset) throws ParseException {
         Date date = DateUtils.parseDate(specifiedTime, TIME_FORMAT);
@@ -298,15 +281,12 @@ public class STDateUtils {
     }
 
     /**
+     * @param specifiedDateTime 指定的时间,格式为yyyy-MM-dd HH:mm:ss/yyyy-MM-dd
+     * @param offset            偏移天数
+     * @return String
+     * @throws ParseException
      * @Title:getOffsetDateTime
      * @Description: 得到与指定日期时间偏移量为X的时间。
-     * @param specifiedDateTime
-     *            指定的时间,格式为yyyy-MM-dd HH:mm:ss/yyyy-MM-dd
-     * @param offset
-     *            偏移天数
-     * @return
-     * @throws ParseException
-     * @return String
      */
     public static String getOffsetDateTime(String specifiedDateTime, int offset) throws ParseException {
         String regexStr = "\\d{4}-\\d{2}-\\d{2}";
@@ -319,7 +299,7 @@ public class STDateUtils {
 
     /**
      * 判断是否为润年
-     * 
+     *
      * @param year
      * @return
      */
@@ -328,43 +308,39 @@ public class STDateUtils {
     }
 
     /**
+     * @param c
+     * @return String
      * @Title:getWeekDay
      * @Description: 判断是星期几.
-     * @param c
-     * @return
-     * @return String
      */
     public static String getWeekDay(Calendar c) {
         if (c == null) {
             return "星期一";
         }
         switch (c.get(Calendar.DAY_OF_WEEK)) {
-        case Calendar.MONDAY:
-            return "星期一";
-        case Calendar.TUESDAY:
-            return "星期二";
-        case Calendar.WEDNESDAY:
-            return "星期三";
-        case Calendar.THURSDAY:
-            return "星期四";
-        case Calendar.FRIDAY:
-            return "星期五";
-        case Calendar.SATURDAY:
-            return "星期六";
-        default:
-            return "星期日";
+            case Calendar.MONDAY:
+                return "星期一";
+            case Calendar.TUESDAY:
+                return "星期二";
+            case Calendar.WEDNESDAY:
+                return "星期三";
+            case Calendar.THURSDAY:
+                return "星期四";
+            case Calendar.FRIDAY:
+                return "星期五";
+            case Calendar.SATURDAY:
+                return "星期六";
+            default:
+                return "星期日";
         }
     }
 
     /**
+     * @param begin 开始日期 .
+     * @param end   结束日期 .
+     * @return List<String>
      * @Title:getDaysListBetweenDates
      * @Description: 获得两个日期之间的连续日期.
-     * @param begin
-     *            开始日期 .
-     * @param end
-     *            结束日期 .
-     * @return
-     * @return List<String>
      */
     public static List<String> getDaysListBetweenDates(String begin, String end) {
         List<String> dateList = new ArrayList<String>();
@@ -387,12 +363,11 @@ public class STDateUtils {
     }
 
     /**
-     * @Title:getMonthsListBetweenDates
-     * @Description: 获得连续的月份
      * @param begin
      * @param end
-     * @return
      * @return List<String>
+     * @Title:getMonthsListBetweenDates
+     * @Description: 获得连续的月份
      */
     public static List<String> getMonthsListBetweenDates(String begin, String end) {
         List<String> dateList = new ArrayList<String>();
@@ -415,11 +390,10 @@ public class STDateUtils {
     }
 
     /**
+     * @param createTime
+     * @return String
      * @Title:long2Time
      * @Description: 将long类型的时间值转换成标准格式的时间（yyyy-MM-dd HH:mm:ss）
-     * @param createTime
-     * @return
-     * @return String
      */
     public static String long2Time(String createTime) {
         long fooTime = Long.parseLong(createTime) * 1000L;
@@ -447,13 +421,12 @@ public class STDateUtils {
         System.out.println(long2Time("1234567890"));
 
     }
-    
+
     /**
+     * @param date
+     * @return long
      * @Title:StringToMs
      * @Description: 字符串转毫秒
-     * @param date
-     * @return
-     * @return long
      */
     public static long StringToMs(String date) {
         Calendar cal = Calendar.getInstance();
